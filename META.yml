@@ -15,7 +15,7 @@ build_requires:
   File::pushd: 1.00
   IO::File: 0
   Test::More: 0.23
-generated_by: 'Acme::Module::Build::Tiny version 0.01'
+generated_by: 'Acme::Module::Build::Tiny version 0.02'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -32,5 +32,6 @@ requires:
   Getopt::Long: 0
   IO::File: 1.00
   Test::Harness: 0
+  Text::ParseWords: 0
   Tie::File: 0
-version: 0.01
+version: 0.02
