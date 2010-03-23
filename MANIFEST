@@ -1,0 +1,13 @@
+bin/btiny
+Build.PL
+Changes
+lib/Acme/Module/Build/Tiny.pm
+MANIFEST			This list of files
+MANIFEST.SKIP
+t/00-load.t
+t/btiny.t
+t/lib/DistGen.pm
+t/simple.t
+Todo
+inc/Acme/Module/Build/Tiny.pm
+META.yml

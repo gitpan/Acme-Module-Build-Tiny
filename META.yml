@@ -1,0 +1,36 @@
+---
+abstract: 'A tiny replacement for Module::Build'
+author:
+  - 'David Golden <dagolden@cpan.org>'
+build_requires:
+  Capture::Tiny: 0
+  Carp: 0
+  Cwd: 0
+  Data::Dumper: 0
+  File::Basename: 0
+  File::Find: 0
+  File::Path: 0
+  File::Spec: 0
+  File::Temp: 0
+  File::pushd: 1.00
+  IO::File: 0
+  Test::More: 0.23
+generated_by: 'Acme::Module::Build::Tiny version 0.01'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Acme-Module-Build-Tiny
+requires:
+  Carp: 0
+  Data::Dumper: 0
+  ExtUtils::Install: 0
+  ExtUtils::MakeMaker: 0
+  File::Find: 0
+  File::Path: 0
+  File::Spec: 0.86
+  Getopt::Long: 0
+  IO::File: 1.00
+  Test::Harness: 0
+  Tie::File: 0
+version: 0.01
