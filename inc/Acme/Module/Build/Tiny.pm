@@ -13,7 +13,7 @@ use Getopt::Long 0 ();
 use Test::Harness 0 ();
 use Tie::File 0 ();
 use Text::ParseWords 0 ();
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 my %re = (
   lib     => qr{\.(?:pm|pod)$},
@@ -232,11 +232,13 @@ Acme::Module::Build::Tiny - A tiny replacement for Module::Build
 
 =head1 SYNOPSIS
 
+  # First, install Acme::Module::Build::Tiny
+
   # From the command line, run this:
   $ btiny
 
   # Which generates this Build.PL:
-  use inc; use Acme::Module::Build::Tiny;
+  use lib 'inc'; use Acme::Module::Build::Tiny;
 
   # That's it!
 
