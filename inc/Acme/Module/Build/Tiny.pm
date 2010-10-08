@@ -1,4 +1,4 @@
-#!/opt/perl/5.10.1/bin/perl5.10.1
+#!/opt/perl/v5.12.2/bin/perl
 package Acme::Module::Build::Tiny;
 use strict;
 use warnings;
@@ -13,7 +13,7 @@ use Getopt::Long 0 ();
 use Test::Harness 0 ();
 use Tie::File 0 ();
 use Text::ParseWords 0 ();
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 my %re = (
   lib     => qr{\.(?:pm|pod)$},
@@ -62,7 +62,9 @@ sub _get_options {
 
 sub run {
   my $opt = eval { do '_build/build_params' } || {};
-  my $action = $ARGV[0] =~ /\A\w+\z/ ? $ARGV[0] : 'build';
+  my $action = ! defined $ARGV[0]    ? 'build'
+             : $ARGV[0] =~ /\A\w+\z/ ? $ARGV[0]
+             : 'build';
   _get_options($action, $opt);
   __PACKAGE__->can($action)->(%$opt) or exit 1;
 }
@@ -81,7 +83,8 @@ sub import {
   };
   print "Creating new 'Build' script for '$meta->{name}'" .
         " version '$meta->{version}'\n";
-  _spew('Build' => "#!$^X\n", _slurp( $INC{_mod2pm(shift)} ) );
+  my $perl = $^X =~ /\Aperl[.0-9]*\z/ ? $Config{perlpath} : $^X;
+  _spew('Build' => "#!$perl\n", _slurp( $INC{_mod2pm(shift)} ) );
   chmod 0755, 'Build';
   _spew( '_build/prereqs', _data_dump(_find_prereqs()) );
   _spew( '_build/build_params', _data_dump($opt) );

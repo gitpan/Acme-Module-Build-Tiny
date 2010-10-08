@@ -1,5 +1,5 @@
 
-#!start included /opt/perl/5.10.1/lib/5.10.1/ExtUtils/MANIFEST.SKIP
+#!start included /opt/perl/v5.12.2/lib/5.12.2/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bRCS\b
 \bCVS\b
@@ -55,6 +55,6 @@
  
 # Avoid MYMETA files
 ^MYMETA\.
-#!end included /opt/perl/5.10.1/lib/5.10.1/ExtUtils/MANIFEST.SKIP
+#!end included /opt/perl/v5.12.2/lib/5.12.2/ExtUtils/MANIFEST.SKIP
 
 ^Acme-Module-Build-Tiny
