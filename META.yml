@@ -1,5 +1,5 @@
 ---
-abstract: 'A tiny replacement for Module::Build'
+abstract: 'A tiny replacement for Module::Build (DEPRECATED)'
 author:
   - 'David Golden <dagolden@cpan.org>'
 build_requires:
@@ -15,7 +15,7 @@ build_requires:
   File::pushd: 1.00
   IO::File: 0
   Test::More: 0.23
-generated_by: 'Acme::Module::Build::Tiny version 0.05'
+generated_by: 'Acme::Module::Build::Tiny version 0.06'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -34,4 +34,4 @@ requires:
   Test::Harness: 0
   Text::ParseWords: 0
   Tie::File: 0
-version: 0.05
+version: 0.06

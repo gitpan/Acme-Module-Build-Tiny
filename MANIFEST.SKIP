@@ -1,5 +1,5 @@
 
-#!start included /opt/perl/v5.12.2/lib/5.12.2/ExtUtils/MANIFEST.SKIP
+#!start included /home/david/perl5/perlbrew/perls/perl-5.14.0/lib/5.14.0/ExtUtils/MANIFEST.SKIP
 # Avoid version control files.
 \bRCS\b
 \bCVS\b
@@ -52,9 +52,9 @@
 # Avoid Devel::Cover and Devel::CoverX::Covered files.
 \bcover_db\b
 \bcovered\b
- 
+
 # Avoid MYMETA files
 ^MYMETA\.
-#!end included /opt/perl/v5.12.2/lib/5.12.2/ExtUtils/MANIFEST.SKIP
+#!end included /home/david/perl5/perlbrew/perls/perl-5.14.0/lib/5.14.0/ExtUtils/MANIFEST.SKIP
 
 ^Acme-Module-Build-Tiny

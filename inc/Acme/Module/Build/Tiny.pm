@@ -1,4 +1,4 @@
-#!/opt/perl/v5.12.2/bin/perl
+#!/home/david/perl5/perlbrew/perls/perl-5.14.0/bin/perl5.14.0
 package Acme::Module::Build::Tiny;
 use strict;
 use warnings;
@@ -13,7 +13,7 @@ use Getopt::Long 0 ();
 use Test::Harness 0 ();
 use Tie::File 0 ();
 use Text::ParseWords 0 ();
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 my %re = (
   lib     => qr{\.(?:pm|pod)$},
@@ -66,7 +66,8 @@ sub run {
              : $ARGV[0] =~ /\A\w+\z/ ? $ARGV[0]
              : 'build';
   _get_options($action, $opt);
-  __PACKAGE__->can($action)->(%$opt) or exit 1;
+  my $fcn = __PACKAGE__->can($action) or die "$action not implemented\n";
+  $fcn->(%$opt);
 }
 
 sub debug {
@@ -208,8 +209,8 @@ sub _write_meta {
   $meta->{generated_by} = sprintf("%s version %s", __PACKAGE__, $VERSION);
   $meta->{'meta-spec'} = { version => 1.4, url => 'http://module-build.sourceforge.net/META-spec-v1.4.html' };
   $meta->{'license'} = 'perl';
-  require Module::Build::YAML;
-  Module::Build::YAML::DumpFile($file,$meta);
+  require CPAN::Meta::YAML;
+  CPAN::Meta::YAML::DumpFile($file,$meta);
 }
 
 sub _find_prereqs {
@@ -231,7 +232,7 @@ __END__
 
 =head1 NAME
 
-Acme::Module::Build::Tiny - A tiny replacement for Module::Build
+Acme::Module::Build::Tiny - A tiny replacement for Module::Build (DEPRECATED)
 
 =head1 SYNOPSIS
 
@@ -246,6 +247,13 @@ Acme::Module::Build::Tiny - A tiny replacement for Module::Build
   # That's it!
 
 =head1 DESCRIPTION
+
+=head2 Deprecated
+
+B<NOTE: This module is deprecated>.  See L<Module::Build::Tiny> instead,
+which builds upon this Acme proof of concept.
+
+=head2 Original Description
 
 Many Perl distributions use a Build.PL file instead of a Makefile.PL file
 to drive distribution configuration, build, test and installation.
@@ -360,4 +368,5 @@ it under the same terms as Perl itself, either Perl version 5.10.0 or,
 at your option, any later version of Perl 5 you may have available.
 
 =cut
+
 # vi:et:sts=2:sw=2:ts=2
